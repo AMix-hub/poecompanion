@@ -17,7 +17,7 @@ A comprehensive Path of Exile companion — available as both a **desktop applic
 ### Prerequisites
 
 - [Node.js](https://nodejs.org) v18 or later
-- On Windows: no extra tools needed
+- On Windows: no extra tools or elevated privileges needed
 - On macOS: Xcode Command Line Tools (`xcode-select --install`)
 - On Linux: `dpkg`, `fakeroot` for `.deb` targets (optional)
 
