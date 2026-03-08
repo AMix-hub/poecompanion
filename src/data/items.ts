@@ -1,0 +1,485 @@
+import type { Item } from "@/types";
+
+export const items: Item[] = [
+  // ── WEAPONS ────────────────────────────────────────────────────────────────
+  {
+    id: "doomsower",
+    name: "Doomsower",
+    baseName: "Reaver Sword",
+    type: "One Hand Sword",
+    category: "weapon",
+    rarity: "unique",
+    levelRequirement: 65,
+    stats: [
+      "100–120% increased Physical Damage",
+      "Adds 10–20 Physical Damage",
+      "+30 to Strength",
+      "20% increased Attack Speed",
+      "30% of Physical Damage Converted to Chaos Damage",
+    ],
+    description:
+      "A fearsome blade infused with chaotic energy, favoured by those who embrace entropy.",
+    flavourText: "The sword does not merely wound — it unravels.",
+    tags: ["sword", "chaos", "physical", "strength"],
+    dropSources: ["Endgame bosses", "Unique drops"],
+  },
+  {
+    id: "kaom-heart-staff",
+    name: "Wildwood Quarterstaff",
+    baseName: "Coiled Staff",
+    type: "Staff",
+    category: "weapon",
+    rarity: "rare",
+    levelRequirement: 55,
+    stats: [
+      "80–95% increased Spell Damage",
+      "+120 to maximum Mana",
+      "25% increased Cast Speed",
+      "Gain 10% of Mana as extra maximum Energy Shield",
+    ],
+    flavourText: "",
+    tags: ["staff", "spell", "mana", "caster"],
+    dropSources: ["Act 7–10 monsters", "Maps"],
+  },
+  {
+    id: "voltaxic-rift",
+    name: "Voltaxic Rift",
+    baseName: "Spine Bow",
+    type: "Bow",
+    category: "weapon",
+    rarity: "unique",
+    levelRequirement: 60,
+    stats: [
+      "100–140% increased Lightning Damage with Attacks",
+      "Adds 1–500 Lightning Damage",
+      "60% of Lightning Damage Converted to Chaos Damage",
+      "15% chance to Shock",
+      "Skills Chain +1 times",
+    ],
+    description:
+      "A bow crackling with barely contained lightning, transforming electric charge into deadly venom.",
+    flavourText: "Follow the storm's path from sky to marrow.",
+    tags: ["bow", "lightning", "chaos", "dexterity"],
+    dropSources: ["Shaper", "Endgame drops"],
+  },
+  {
+    id: "rare-axe-severing",
+    name: "Severing Cleaver",
+    baseName: "Vaal Axe",
+    type: "Two Hand Axe",
+    category: "weapon",
+    rarity: "rare",
+    levelRequirement: 64,
+    stats: [
+      "180–210% increased Physical Damage",
+      "Adds 15–30 Physical Damage",
+      "+25 to Strength",
+      "20% chance to cause Bleeding on Hit",
+      "10% increased Area of Effect",
+    ],
+    tags: ["axe", "physical", "bleed", "strength"],
+    dropSources: ["Act 9–10", "Maps"],
+  },
+  {
+    id: "shimmering-wand",
+    name: "Shimmering Wand",
+    baseName: "Imbued Wand",
+    type: "Wand",
+    category: "weapon",
+    rarity: "magic",
+    levelRequirement: 59,
+    stats: [
+      "35% increased Spell Damage",
+      "+45 to maximum Mana",
+      "12% increased Cast Speed",
+    ],
+    tags: ["wand", "spell", "intelligence", "caster"],
+    dropSources: ["Act 7–8", "Vendor recipes"],
+  },
+
+  // ── ARMOUR ─────────────────────────────────────────────────────────────────
+  {
+    id: "kaom-heart",
+    name: "Kaom's Heart",
+    baseName: "Glorious Plate",
+    type: "Body Armour",
+    category: "armour",
+    rarity: "unique",
+    levelRequirement: 68,
+    stats: [
+      "+500 to maximum Life",
+      "100% increased Armour",
+      "No Sockets",
+      "Fire Skills deal 40% increased Damage",
+    ],
+    description:
+      "A massive plate forged from the fires of Kaom's conquest, granting enormous life at the cost of gem sockets.",
+    flavourText: "Kaom burned his fleet to keep his men from retreating.",
+    tags: ["body-armour", "life", "fire", "strength"],
+    dropSources: ["Kaom", "Endgame"],
+  },
+  {
+    id: "shav-revelation",
+    name: "Shavronne's Revelation",
+    baseName: "Sadist Garb",
+    type: "Body Armour",
+    category: "armour",
+    rarity: "unique",
+    levelRequirement: 66,
+    stats: [
+      "+400 to maximum Energy Shield",
+      "Chaos Damage does not bypass Energy Shield",
+      "Life Regeneration does not apply",
+      "50% of Physical Damage from Hits is taken from Mana",
+    ],
+    description: "The signature armour of the Eternal Empire's forbidden experiments.",
+    flavourText: "She saw the pain so that others would not have to.",
+    tags: ["body-armour", "energy-shield", "chaos", "intelligence"],
+    dropSources: ["Shavronne", "Endgame"],
+  },
+  {
+    id: "rare-helm-iron",
+    name: "Ironscale Casque",
+    baseName: "Vaal Mask",
+    type: "Helmet",
+    category: "armour",
+    rarity: "rare",
+    levelRequirement: 62,
+    stats: [
+      "+80 to maximum Life",
+      "+45 to maximum Energy Shield",
+      "30% increased Mana Regeneration Rate",
+      "Socketed Gems have 15% increased Area of Effect",
+    ],
+    tags: ["helmet", "life", "energy-shield", "hybrid"],
+    dropSources: ["Maps", "Act 10"],
+  },
+  {
+    id: "rare-gloves-frostbound",
+    name: "Frostbound Grips",
+    baseName: "Slink Gloves",
+    type: "Gloves",
+    category: "armour",
+    rarity: "rare",
+    levelRequirement: 64,
+    stats: [
+      "Adds 10–25 Cold Damage to Attacks",
+      "+65 to maximum Life",
+      "30% to Cold Resistance",
+      "15% increased Attack Speed",
+    ],
+    tags: ["gloves", "cold", "attack", "dexterity"],
+    dropSources: ["Maps"],
+  },
+  {
+    id: "darkray-vectors",
+    name: "Darkray Vectors",
+    baseName: "Dragonscale Boots",
+    type: "Boots",
+    category: "armour",
+    rarity: "unique",
+    levelRequirement: 66,
+    stats: [
+      "25% increased Movement Speed",
+      "+30% to Lightning Resistance",
+      "1% increased Attack Speed per Frenzy Charge",
+      "6% increased Evasion per Frenzy Charge",
+      "4 to Maximum Frenzy Charges",
+    ],
+    description: "Swift boots that amplify the power of frenzy charges.",
+    flavourText: "Speed is its own kind of armour.",
+    tags: ["boots", "frenzy", "dexterity", "movement"],
+    dropSources: ["Endgame", "Divination cards"],
+  },
+  {
+    id: "rare-belt-stygian",
+    name: "Tempest Clasp",
+    baseName: "Stygian Vise",
+    type: "Belt",
+    category: "accessory",
+    rarity: "rare",
+    levelRequirement: 60,
+    stats: [
+      "+90 to maximum Life",
+      "+35% to Fire Resistance",
+      "+35% to Cold Resistance",
+      "Has an Abyss Socket",
+    ],
+    tags: ["belt", "life", "resistance", "abyss"],
+    dropSources: ["Abyss encounters", "Maps"],
+  },
+
+  // ── ACCESSORIES ─────────────────────────────────────────────────────────────
+  {
+    id: "circle-of-fear",
+    name: "Circle of Fear",
+    baseName: "Ruby Ring",
+    type: "Ring",
+    category: "accessory",
+    rarity: "unique",
+    levelRequirement: 52,
+    stats: [
+      "+25 to maximum Life",
+      "Herald of Ice has (20–40)% increased Buff Effect",
+      "Adds 1–40 Cold Damage if Herald of Ice is active",
+    ],
+    description: "A ring that greatly amplifies the Herald of Ice aura.",
+    flavourText: "Fear turns the air to ice.",
+    tags: ["ring", "cold", "herald", "caster"],
+    dropSources: ["Endgame", "Global Drops"],
+  },
+  {
+    id: "malachai-loop",
+    name: "Malachai's Loop",
+    baseName: "Two-Stone Ring",
+    type: "Ring",
+    category: "accessory",
+    rarity: "unique",
+    levelRequirement: 68,
+    stats: [
+      "+12% to Fire and Lightning Resistances",
+      "Trigger a Socketed Spell on Reaching Maximum Power Charges",
+      "+3 to Maximum Power Charges",
+      "Lose All Power Charges on Triggering",
+    ],
+    description: "A ring tied to the madness of Malachai, trading safety for power.",
+    flavourText: "Every cycle ends the same — in fire.",
+    tags: ["ring", "power-charges", "fire", "trigger"],
+    dropSources: ["Malachai", "Endgame"],
+  },
+  {
+    id: "rare-amulet-vaal",
+    name: "Wraithbound Pendant",
+    baseName: "Jade Amulet",
+    type: "Amulet",
+    category: "accessory",
+    rarity: "rare",
+    levelRequirement: 56,
+    stats: [
+      "+60 to Dexterity",
+      "+70 to maximum Life",
+      "1% of Damage Leeched as Life",
+      "20% increased Evasion Rating",
+    ],
+    tags: ["amulet", "dexterity", "life", "evasion"],
+    dropSources: ["Maps", "Act 8–10"],
+  },
+
+  // ── FLASKS ──────────────────────────────────────────────────────────────────
+  {
+    id: "eternal-life-flask",
+    name: "Eternal Life Flask",
+    baseName: "Eternal Life Flask",
+    type: "Life Flask",
+    category: "flask",
+    rarity: "normal",
+    levelRequirement: 60,
+    stats: ["Recovers 3000 Life over 5 seconds", "Consumes 10 of 30 charges on use"],
+    tags: ["flask", "life", "healing"],
+    dropSources: ["Any monster"],
+  },
+  {
+    id: "quicksilver-flask",
+    name: "Quicksilver Flask",
+    baseName: "Quicksilver Flask",
+    type: "Utility Flask",
+    category: "flask",
+    rarity: "magic",
+    levelRequirement: 4,
+    stats: [
+      "40% increased Movement Speed during Flask Effect",
+      "Leaves a Chilling Trail that deals Cold Damage",
+    ],
+    tags: ["flask", "movement", "utility"],
+    dropSources: ["Low-level drops", "Vendor"],
+  },
+  {
+    id: "taste-of-hate",
+    name: "Taste of Hate",
+    baseName: "Sapphire Flask",
+    type: "Utility Flask",
+    category: "flask",
+    rarity: "unique",
+    levelRequirement: 18,
+    stats: [
+      "20% chance to Avoid Cold Damage from Hits",
+      "Gain 20% of Physical Damage as Extra Cold Damage",
+      "30% of Physical Damage taken as Cold Damage during Flask Effect",
+    ],
+    description: "A flask prized by warriors who want cold damage mitigation.",
+    flavourText: "The first sip is bitter. By the last, you crave it.",
+    tags: ["flask", "cold", "physical", "mitigation"],
+    dropSources: ["Endgame", "Divination cards"],
+  },
+
+  // ── GEMS ────────────────────────────────────────────────────────────────────
+  {
+    id: "cyclone",
+    name: "Cyclone",
+    baseName: "Cyclone",
+    type: "Active Skill Gem",
+    category: "gem",
+    rarity: "normal",
+    levelRequirement: 28,
+    stats: [
+      "Performs a spinning attack that hits enemies in an area around you",
+      "Deals 80% of Base Attack Damage",
+      "2 to 3 Added Physical Damage",
+      "10% increased Movement Speed while Channelling",
+    ],
+    description:
+      "Spin through enemies in a constant whirlwind of death. A melee favourite for clearing.",
+    tags: ["attack", "aoe", "melee", "channelling"],
+    dropSources: ["Act 4 reward", "Vendor", "Drops"],
+  },
+  {
+    id: "fireball",
+    name: "Fireball",
+    baseName: "Fireball",
+    type: "Active Skill Gem",
+    category: "gem",
+    rarity: "normal",
+    levelRequirement: 1,
+    stats: [
+      "Launches a ball of fire that explodes on impact",
+      "Deals 9–14 Fire Damage",
+      "25% chance to Ignite",
+      "Projectile Speed: 1040",
+    ],
+    description:
+      "The iconic fire projectile. Great for ignite builds and early-game clearing.",
+    tags: ["spell", "fire", "projectile", "ignite"],
+    dropSources: ["Act 1 reward", "Vendor"],
+  },
+  {
+    id: "raise-specter",
+    name: "Raise Spectre",
+    baseName: "Raise Spectre",
+    type: "Active Skill Gem",
+    category: "gem",
+    rarity: "normal",
+    levelRequirement: 28,
+    stats: [
+      "Raises a spectral copy of a slain monster as your minion",
+      "Summoned Spectre has 52% of Life of Raised Monster",
+      "Minion inherits all skills and abilities of the source monster",
+    ],
+    description:
+      "A powerful summoner skill that lets you raise unique monsters as permanent allies.",
+    tags: ["minion", "spectre", "summoner", "intelligence"],
+    dropSources: ["Act 4 reward", "Vendor"],
+  },
+  {
+    id: "lightning-arrow",
+    name: "Lightning Arrow",
+    baseName: "Lightning Arrow",
+    type: "Active Skill Gem",
+    category: "gem",
+    rarity: "normal",
+    levelRequirement: 12,
+    stats: [
+      "Fires an arrow that converts physical damage to lightning",
+      "1 to 23 Added Lightning Damage",
+      "Hits up to 3 nearby enemies",
+      "Shocks enemies it hits",
+    ],
+    description:
+      "A popular bow skill that shocks enemies and hits multiple targets with chain lightning.",
+    tags: ["attack", "bow", "lightning", "dexterity"],
+    dropSources: ["Act 1 reward (Ranger)", "Vendor"],
+  },
+
+  // ── CURRENCY ────────────────────────────────────────────────────────────────
+  {
+    id: "chaos-orb",
+    name: "Chaos Orb",
+    baseName: "Chaos Orb",
+    type: "Currency",
+    category: "currency",
+    rarity: "normal",
+    levelRequirement: 1,
+    stats: ["Reforges a rare item with new random modifiers"],
+    description:
+      "The primary trade currency of Path of Exile. Used to reroll rare items or as the basis for trading.",
+    tags: ["currency", "rare", "reroll", "trade"],
+    dropSources: ["Any monster", "Chests", "Divination cards"],
+  },
+  {
+    id: "divine-orb",
+    name: "Divine Orb",
+    baseName: "Divine Orb",
+    type: "Currency",
+    category: "currency",
+    rarity: "normal",
+    levelRequirement: 1,
+    stats: ["Randomises the values of the modifiers on a magic or rare item"],
+    description:
+      "Re-rolls the numeric values of modifiers on an item without changing which modifiers are present.",
+    tags: ["currency", "divine", "reroll-values"],
+    dropSources: ["Endgame monsters", "Strongboxes", "Divination cards"],
+  },
+  {
+    id: "exalted-orb",
+    name: "Exalted Orb",
+    baseName: "Exalted Orb",
+    type: "Currency",
+    category: "currency",
+    rarity: "normal",
+    levelRequirement: 1,
+    stats: ["Augments a rare item with a new random modifier"],
+    description: "Adds a new random modifier to a rare item that has fewer than 6 mods.",
+    tags: ["currency", "rare", "add-mod"],
+    dropSources: ["Endgame monsters", "Divination cards"],
+  },
+  {
+    id: "mirror-of-kalandra",
+    name: "Mirror of Kalandra",
+    baseName: "Mirror of Kalandra",
+    type: "Currency",
+    category: "currency",
+    rarity: "normal",
+    levelRequirement: 1,
+    stats: ["Creates a mirrored copy of an item"],
+    description:
+      "The rarest and most valuable currency item. Creates an exact, non-tradeable copy of any non-unique item.",
+    flavourText: "Though you see many things, beware lest you be blinded by the light.",
+    tags: ["currency", "mirror", "copy", "rare-drop"],
+    dropSources: ["Extremely rare drop from any source"],
+  },
+];
+
+export const itemCategories: ItemCategory[] = [
+  "weapon",
+  "armour",
+  "accessory",
+  "gem",
+  "flask",
+  "currency",
+];
+
+export type ItemCategory = Item["category"];
+
+export function filterItems(
+  items: Item[],
+  {
+    category,
+    rarity,
+    search,
+  }: { category?: ItemCategory; rarity?: string; search?: string }
+) {
+  return items.filter((item) => {
+    if (category && item.category !== category) return false;
+    if (rarity && item.rarity !== rarity) return false;
+    if (search) {
+      const q = search.toLowerCase();
+      if (
+        !item.name.toLowerCase().includes(q) &&
+        !item.baseName.toLowerCase().includes(q) &&
+        !item.tags.some((t) => t.includes(q)) &&
+        !item.type.toLowerCase().includes(q)
+      )
+        return false;
+    }
+    return true;
+  });
+}

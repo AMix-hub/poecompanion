@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d0c0b;
+  --foreground: #e8dcc8;
+  --poe-gold: #c8a55a;
+  --poe-gold-light: #e4c880;
+  --poe-dark: #0d0c0b;
+  --poe-card: #1a1714;
+  --poe-border: #3d3020;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+/* PoE-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1714;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d3020;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8a55a;
+}
+
+/* Item rarity colours */
+.rarity-normal   { color: #c8c8c8; }
+.rarity-magic    { color: #8888ff; }
+.rarity-rare     { color: #ffd700; }
+.rarity-unique   { color: #af6025; }
+
+/* PoE card hover effect */
+.poe-card {
+  background: var(--poe-card);
+  border: 1px solid var(--poe-border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.poe-card:hover {
+  border-color: var(--poe-gold);
+  box-shadow: 0 0 12px rgba(200, 165, 90, 0.15);
+}
+
+/* Golden divider line */
+.poe-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--poe-gold), transparent);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
