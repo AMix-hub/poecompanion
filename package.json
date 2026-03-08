@@ -2,15 +2,75 @@
   "name": "poecompanion",
   "version": "0.1.0",
   "private": true,
+  "description": "Path of Exile companion — leveling guide, items, crafting, builds & news",
+  "author": "PoE Companion",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "electron:preview": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "dist": "npm run build && electron-builder --win --mac --linux"
+  },
+  "build": {
+    "appId": "com.poecompanion.app",
+    "productName": "PoE Companion",
+    "copyright": "Fan-made tool — not affiliated with Grinding Gear Games",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/**/*",
+      "node_modules/electron-serve/**/*",
+      "src/app/favicon.ico"
+    ],
+    "extraResources": [
+      {
+        "from": "out",
+        "to": "out"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/app/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PoE Companion"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.reference"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Game"
+    }
   },
   "dependencies": {
-    "next": "^15.3.9",
+    "electron-serve": "^1.1.0",
+    "next": "^15.5.12",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -22,8 +82,10 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "electron": "^40.8.0",
+    "electron-builder": "^26.8.1",
     "eslint": "^8",
-    "eslint-config-next": "^15.3.9",
+    "eslint-config-next": "^15.5.12",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8",
