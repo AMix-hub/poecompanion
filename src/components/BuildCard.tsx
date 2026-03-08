@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Build } from "@/types";
 
 const difficultyLabel: Record<Build["difficulty"], string> = {
@@ -43,7 +44,8 @@ interface BuildCardProps {
 export default function BuildCard({ build }: BuildCardProps) {
   const ascColor = ascendancyColors[build.ascendancy] ?? "text-poe-gold";
   return (
-    <div className="poe-card rounded-lg p-5 hover:scale-[1.01] transition-transform">
+    <Link href={`/builds/${build.id}`} className="block">
+      <div className="poe-card rounded-lg p-5 hover:scale-[1.01] transition-transform cursor-pointer hover:border-poe-gold/40 border border-transparent">
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-3">
         <div>
@@ -120,5 +122,6 @@ export default function BuildCard({ build }: BuildCardProps) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }

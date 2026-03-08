@@ -45,6 +45,74 @@ export interface Build {
   tags: string[];
 }
 
+export type GearSlot =
+  | "weapon"
+  | "offhand"
+  | "helm"
+  | "chest"
+  | "gloves"
+  | "boots"
+  | "belt"
+  | "ring1"
+  | "ring2"
+  | "amulet"
+  | "flask1"
+  | "flask2"
+  | "flask3"
+  | "flask4"
+  | "flask5";
+
+export type GearTierLabel = "leveling" | "budget" | "mid" | "endgame";
+
+export interface GearItem {
+  slot: GearSlot;
+  name: string;
+  notes?: string;
+}
+
+export interface GearTier {
+  tier: GearTierLabel;
+  label: string;
+  estimatedCost: string;
+  items: GearItem[];
+}
+
+export type PassivePriority = "core" | "important" | "optional";
+
+export interface PassiveCluster {
+  name: string;
+  nodes: string[];
+  priority: PassivePriority;
+  notes?: string;
+}
+
+export interface SkillGem {
+  name: string;
+  type: "active" | "support";
+  essential: boolean;
+}
+
+export interface SkillLink {
+  name: string;
+  gems: SkillGem[];
+}
+
+export interface LevelingNote {
+  level: number;
+  note: string;
+  newSkills?: string[];
+  passivePriority?: string;
+}
+
+export interface BuildDetail extends Build {
+  gearProgression: GearTier[];
+  passiveClusters: PassiveCluster[];
+  skillLinks: SkillLink[];
+  levelingNotes: LevelingNote[];
+  levelingSkills: string[];
+  powerLevelingTips: string[];
+}
+
 export type NewsCategory =
   | "patch-notes"
   | "league-announcement"

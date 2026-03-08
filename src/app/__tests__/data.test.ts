@@ -3,6 +3,7 @@ import { builds, getPopularBuilds, getBuildsByDifficulty, filterBuilds } from "@
 import { newsArticles, getLatestNews, filterNews } from "@/data/news";
 import { acts, getActById } from "@/data/leveling";
 import { craftableBases, craftingOrbs } from "@/data/crafting";
+import { buildDetails, getBuildDetailById } from "@/data/buildDetails";
 
 describe("Items data", () => {
   it("has items", () => {
@@ -164,5 +165,107 @@ describe("Crafting data", () => {
     expect(orbNames).toContain("Chaos Orb");
     expect(orbNames).toContain("Exalted Orb");
     expect(orbNames).toContain("Orb of Alchemy");
+  });
+});
+
+describe("BuildDetails data", () => {
+  it("has build details", () => {
+    expect(buildDetails.length).toBeGreaterThan(0);
+  });
+
+  it("all build details have required base fields", () => {
+    for (const bd of buildDetails) {
+      expect(bd.id).toBeTruthy();
+      expect(bd.name).toBeTruthy();
+      expect(bd.mainSkill).toBeTruthy();
+      expect(typeof bd.popularity).toBe("number");
+    }
+  });
+
+  it("all build details have gear progression", () => {
+    buildDetails.forEach((bd) => {
+      expect(bd.gearProgression.length).toBeGreaterThan(0);
+      bd.gearProgression.forEach((tier) => {
+        expect(tier.tier).toBeTruthy();
+        expect(tier.label).toBeTruthy();
+        expect(tier.estimatedCost).toBeTruthy();
+        expect(tier.items.length).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  it("all build details have passive clusters", () => {
+    buildDetails.forEach((bd) => {
+      expect(bd.passiveClusters.length).toBeGreaterThan(0);
+      bd.passiveClusters.forEach((cluster) => {
+        expect(cluster.name).toBeTruthy();
+        expect(cluster.nodes.length).toBeGreaterThan(0);
+        expect(["core", "important", "optional"]).toContain(cluster.priority);
+      });
+    });
+  });
+
+  it("all build details have skill links", () => {
+    buildDetails.forEach((bd) => {
+      expect(bd.skillLinks.length).toBeGreaterThan(0);
+      bd.skillLinks.forEach((link) => {
+        expect(link.name).toBeTruthy();
+        expect(link.gems.length).toBeGreaterThan(0);
+      });
+    });
+  });
+
+  it("all build details have leveling notes", () => {
+    buildDetails.forEach((bd) => {
+      expect(bd.levelingNotes.length).toBeGreaterThan(0);
+      bd.levelingNotes.forEach((note) => {
+        expect(typeof note.level).toBe("number");
+        expect(note.note).toBeTruthy();
+      });
+    });
+  });
+
+  it("all build details have power leveling tips", () => {
+    buildDetails.forEach((bd) => {
+      expect(bd.powerLevelingTips.length).toBeGreaterThan(0);
+    });
+  });
+
+  it("getBuildDetailById returns correct detail", () => {
+    const detail = getBuildDetailById("cyclone-slayer");
+    expect(detail?.id).toBe("cyclone-slayer");
+    expect(detail?.name).toBe("Cyclone Slayer");
+  });
+
+  it("getBuildDetailById returns undefined for unknown id", () => {
+    expect(getBuildDetailById("not-a-real-build")).toBeUndefined();
+  });
+
+  it("gear progression tiers use valid tier labels", () => {
+    const validTiers = ["leveling", "budget", "mid", "endgame"];
+    buildDetails.forEach((bd) => {
+      bd.gearProgression.forEach((tier) => {
+        expect(validTiers).toContain(tier.tier);
+      });
+    });
+  });
+
+  it("skill link gems have valid types", () => {
+    buildDetails.forEach((bd) => {
+      bd.skillLinks.forEach((link) => {
+        link.gems.forEach((gem) => {
+          expect(["active", "support"]).toContain(gem.type);
+          expect(typeof gem.essential).toBe("boolean");
+        });
+      });
+    });
+  });
+
+  it("leveling notes are ordered by level ascending", () => {
+    buildDetails.forEach((bd) => {
+      for (let i = 1; i < bd.levelingNotes.length; i++) {
+        expect(bd.levelingNotes[i].level).toBeGreaterThan(bd.levelingNotes[i - 1].level);
+      }
+    });
   });
 });
