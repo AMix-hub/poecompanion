@@ -191,3 +191,31 @@ export interface CraftedItem {
   suffixes: Affix[];
   craftedMod?: Affix;
 }
+
+// ── PASSIVE SKILL TREE ───────────────────────────────────────────────────────
+
+export type PassiveNodeType = "keystone" | "notable" | "small" | "mastery" | "ascendancy";
+
+export interface PassiveNode {
+  id: string;
+  name: string;
+  type: PassiveNodeType;
+  stats: string[];
+  description?: string;
+  classRestriction?: string;
+}
+
+export interface PassiveTreeRegion {
+  id: string;
+  name: string;
+  primaryClass: string;
+  description: string;
+  keystones: PassiveNode[];
+  notables: PassiveNode[];
+  smallPassives: string[];
+}
+
+export interface PassiveTree {
+  version: string;
+  regions: PassiveTreeRegion[];
+}
