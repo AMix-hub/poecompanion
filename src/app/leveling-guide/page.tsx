@@ -18,7 +18,7 @@ export default function LevelingGuidePage() {
       </div>
 
       {/* Quick tips banner */}
-      <div className="poe-card rounded-lg p-4 mb-8 border border-poe-gold/30">
+      <div className="poe-card rounded-lg p-4 mb-6 border border-poe-gold/30">
         <h2 className="text-sm font-bold text-poe-gold mb-2">⚡ General Leveling Tips</h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
           {[
@@ -35,6 +35,102 @@ export default function LevelingGuidePage() {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Power Leveling Section */}
+      <div className="poe-card rounded-lg p-5 mb-8 border border-blue-900/40">
+        <h2 className="text-base font-bold text-blue-300 mb-3">🚀 Power Leveling — Fastest Route to Maps</h2>
+        <p className="text-xs text-stone-400 mb-4">
+          Follow these strategies to reach maps in 6–8 hours on a new league-start, or under 4 hours with experience.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            {
+              heading: "Pre-Game Setup",
+              tips: [
+                "Pre-plan your first 20 passive points before the league starts.",
+                "Know your vendor recipes: three same-color-linked items → chromatic orb; 6-linked item → 7 jeweller's orbs.",
+                "Bookmark the vendor recipes wiki page — it saves time during acts.",
+                "Pick a build with a self-found starter skill (e.g., Spark, Caustic Arrow, Glacial Cascade).",
+              ],
+            },
+            {
+              heading: "Acts 1–5: Rush Strategy",
+              tips: [
+                "Do NOT clear every zone — only complete mandatory objectives and move on.",
+                "Skip optional quests unless they reward a skill gem you need.",
+                "Weapon swap: always upgrade your main damage weapon every 8–10 levels.",
+                "Get a Quicksilver Flask the moment it drops or is sold by Tarkleigh (Act 1).",
+              ],
+            },
+            {
+              heading: "Acts 6–10: Resistance Priority",
+              tips: [
+                "All resistances are cut by 60% after Act 5 — you MUST re-cap them.",
+                "Target vendor-rolled gear with high resistances to cover the penalty quickly.",
+                "Don't linger: enemies in Acts 6–10 mirror Acts 1–5 but deal far more damage.",
+                "Complete optional quests only if they give passive skill points.",
+              ],
+            },
+            {
+              heading: "Labyrinth Timing",
+              tips: [
+                "Normal Lab: complete as soon as you hit level 33 (clears Act 3 Merciless).",
+                "Cruel Lab: complete around level 55 (after Act 7).",
+                "Merciless Lab: complete around level 68 (after Act 10).",
+                "Uber Lab: complete at level 75+ once you have strong enough gear.",
+              ],
+            },
+            {
+              heading: "Skill Gem Progression",
+              tips: [
+                "Upgrade support gems as soon as better ones become available (e.g., swap Lesser Multiple Projectiles → Greater at level 38).",
+                "Keep gem levels high — a level 20 main skill gem is a 20% more damage multiplier.",
+                "Buy gems from vendors early: they sell ALL gems at Act 2 onwards.",
+                "Consider a Tabula Rasa chest (50–100c) for a free 6-link while leveling.",
+              ],
+            },
+            {
+              heading: "Vendor Recipes for Free Upgrades",
+              tips: [
+                "Any rare item + Orb of Alteration → vendor for 1–4 Orbs of Alteration.",
+                "20% quality flask → upgrades with 5 Glassblower's Baubles.",
+                "Rustic Sash + Blacksmith's Whetstone → higher-rolled Rustic Sash (physical builds).",
+                "Full rare item set (all slots) → 1–2 Chaos Orbs (level 60–74 unidentified).",
+              ],
+            },
+          ].map((section) => (
+            <div key={section.heading} className="p-3 rounded bg-black/20 border border-poe-border/40">
+              <h3 className="text-xs font-bold text-stone-300 uppercase mb-2">{section.heading}</h3>
+              <ul className="space-y-1">
+                {section.tips.map((tip, i) => (
+                  <li key={i} className="text-xs text-stone-400 flex gap-1.5 leading-relaxed">
+                    <span className="text-blue-400 flex-shrink-0 mt-0.5">›</span>
+                    {tip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Time targets */}
+        <div className="mt-4 p-3 rounded bg-poe-gold/5 border border-poe-gold/20">
+          <h3 className="text-xs font-bold text-poe-gold mb-2 uppercase">Target Timings</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { milestone: "Act 1 done", target: "~30 min" },
+              { milestone: "Act 5 done", target: "~2–3 hrs" },
+              { milestone: "Act 10 done", target: "~5–6 hrs" },
+              { milestone: "First map", target: "~6–8 hrs" },
+            ].map((t) => (
+              <div key={t.milestone} className="text-center">
+                <p className="text-poe-gold font-bold text-sm">{t.target}</p>
+                <p className="text-stone-500 text-[11px]">{t.milestone}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Acts */}

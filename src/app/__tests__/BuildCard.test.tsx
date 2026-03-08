@@ -73,4 +73,10 @@ describe("BuildCard", () => {
     render(<BuildCard build={mockBuild} />);
     expect(screen.getByText(/maxroll.gg/)).toBeInTheDocument();
   });
+
+  it("card is a link to the build detail page", () => {
+    render(<BuildCard build={mockBuild} />);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("href", "/builds/test-build");
+  });
 });
