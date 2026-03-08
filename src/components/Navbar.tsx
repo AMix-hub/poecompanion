@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/items", label: "Items", icon: "⚔" },
   { href: "/crafting", label: "Crafting", icon: "🔨" },
   { href: "/builds", label: "Builds", icon: "🛡" },
+  { href: "/passive-tree", label: "Passive Tree", icon: "🌳" },
   { href: "/news", label: "News", icon: "📰" },
 ];
 

@@ -18,9 +18,9 @@ const features = [
     icon: "⚔",
     title: "Items Database",
     description:
-      "Browse weapons, armour, accessories, gems, flasks and currency. Filter by rarity, category, and search by name.",
+      "Browse weapons, armour, accessories, gems, flasks, currency and maps. Filter by rarity, category, and search by name.",
     color: "border-blue-700 hover:border-blue-500",
-    badge: "All items",
+    badge: "150+ items",
   },
   {
     href: "/crafting",
@@ -38,7 +38,16 @@ const features = [
     description:
       "Curated builds from top players and community guides. Filter by class, difficulty, and playstyle.",
     color: "border-purple-700 hover:border-purple-500",
-    badge: "10+ builds",
+    badge: "15+ builds",
+  },
+  {
+    href: "/passive-tree",
+    icon: "🌳",
+    title: "Passive Skill Tree",
+    description:
+      "Browse keystones, notable passives, and stat clusters organized by class region. Search by name or effect.",
+    color: "border-teal-700 hover:border-teal-500",
+    badge: "All classes",
   },
   {
     href: "/news",

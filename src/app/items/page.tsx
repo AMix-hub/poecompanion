@@ -16,6 +16,7 @@ const categoryOptions: { value: Category; label: string; icon: string }[] = [
   { value: "gem", label: "Gems", icon: "💎" },
   { value: "flask", label: "Flasks", icon: "⚗" },
   { value: "currency", label: "Currency", icon: "💰" },
+  { value: "map", label: "Maps", icon: "🗺" },
 ];
 
 const rarityOptions: { value: Rarity; label: string }[] = [
